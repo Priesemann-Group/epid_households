@@ -7,11 +7,11 @@ import time
 
 
 # ISO codes:
-isos = pd.read_csv('../parameters/input/isos.csv', sep=',', header=0)
+isos = pd.read_csv('../data/isos.csv', sep=',', header=0)
 # Size Distributions from Eurostat: 
-eurostat = pd.read_csv('../parameters/input/2021_SizeDist.csv', sep=',',header=0)
+eurostat = pd.read_csv('../data/2021_SizeDist.csv', sep=',',header=0)
 # European population size from Eurostat:
-population = pd.read_csv('../parameters/input/europe_populationsize.csv', sep=',', header=0)
+population = pd.read_csv('../data/europe_populationsize.csv', sep=',', header=0)
 
 
 def get_iso2(name):
@@ -31,13 +31,13 @@ def get_distribution(iso):
 
 # Albania's and North Macedonia's household distributions are in some other files 
 def get_distribution_albania():
-    datafile = pd.read_csv('../parameters/input/ilc_lvph03_1_Data.csv',sep=',',header=0)
+    datafile = pd.read_csv('../data/ilc_lvph03_1_Data.csv',sep=',',header=0)
     albania = datafile[datafile['GEO'] == 'Albania']
     dist = np.asarray(albania['Value'],dtype=float)/100
     return dist
 
 def get_distribution_northmacedonia():
-    datafile = pd.read_csv('../parameters/input/ilc_lvph03_1_Data.csv',sep=',',header=0)
+    datafile = pd.read_csv('../data/ilc_lvph03_1_Data.csv',sep=',',header=0)
     macedonia = datafile[datafile['GEO'] == 'North Macedonia']
     dist = np.asarray(macedonia['Value'],dtype=float)/100
     return dist
@@ -285,17 +285,17 @@ def calc_data_a_hhdist(data_c, mus):
     return data_alpha_predict_hhdist
 
 def run_all(gamma, a_h, mean='europe_as_country', hhdist=False):
-    data = filter_soft(read_data("../data/prevalence_vectors/Prevalence2021W22(gamma={}).csv".format(gamma)))
+    data = filter_soft(read_data("../results/prevalence_vectors/Prevalence2021W22(gamma={}).csv".format(gamma)))
     mus = calc_mus(a_h)
     data_c = calc_data_c(data, mus)
     european_means = calc_european_means(data, data_c, mus)
     means = european_means[mean]
     data_a = calc_data_a(data_c, means, mus)
-    data.to_csv('../data/processed/(gamma={},ah={},{})_data.csv'.format(gamma,a_h,mean))
-    data_c.to_csv('../data/processed/(gamma={},ah={},{})_data_c.csv'.format(gamma,a_h,mean))
-    data_a.to_csv('../data/processed/(gamma={},ah={},{})_data_a.csv'.format(gamma,a_h,mean))
+    data.to_csv('../results/processed/(gamma={},ah={},{})_data.csv'.format(gamma,a_h,mean))
+    data_c.to_csv('../results/processed/(gamma={},ah={},{})_data_c.csv'.format(gamma,a_h,mean))
+    data_a.to_csv('../results/processed/(gamma={},ah={},{})_data_a.csv'.format(gamma,a_h,mean))
     if hhdist==True:
         data_a_hhdist = calc_data_a_hhdist(data_c, mus)
-        data_a_hhdist.to_csv('../data/processed/(gamma={},ah={},{})_data_a_hhdist.csv'.format(gamma,a_h,mean))
+        data_a_hhdist.to_csv('../results/processed/(gamma={},ah={},{})_data_a_hhdist.csv'.format(gamma,a_h,mean))
     return 1
 

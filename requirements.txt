@@ -1,0 +1,8 @@
+numpy==2.0.1
+pandas==2.2.2
+scipy==1.14.1
+matplotlib==3.9.2
+seaborn==0.13.2
+jinja2==3.1.4
+ipykernel
+openpyxl
