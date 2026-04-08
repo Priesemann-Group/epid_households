@@ -8,17 +8,37 @@ License: [GPL v3](https://www.gnu.org/licenses/gpl-3.0)
 
 ## Usage
 
-Clone with
+Clone the repository with
 
 ```bash
 git clone git@https://github.com/Priesemann-Group/epid_households
 ```
 
-Install python (>3.12) and pip; get the required packages with
+There are many ways to install the python packages specified in requirements.txt.
+We suggest a virtual environment on Linux:
 
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
+python -m ipykernel install --user --name=.venv
 ```
+
+The last command builds a kernel that can be used in the Jupyter notebooks, make sure it is selected after starting Jupyter.
+
+
+## Demo
+
+A small demo can be found in ./notebooks/demo.ipynb.
+
+This demo runs the main functions with 50 instead of ~50000 bootstraping samples.
+
+Download the required death [data](https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/DEMO_R_MWK2_05/?format=SDMX-CSV&lang=en&label=both) and save it to ./data/Deaths.csv
+
+Execution of the demo should run within minutes on a normal desktop PC; however, systems with less than 16 GB of RAM may experience swapping.
+
+**Disclamer: Running the bootstrap with 50 instead of 50000 samples generates unprecise results and is only meant for demo/testing purposes.**
+
 
 
 ## Plotting
