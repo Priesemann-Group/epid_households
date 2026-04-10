@@ -50,7 +50,7 @@ The figures in ./figures/ can be reproduced with the following notebooks:
 | 1 (B)  | Disease spread from the perspective of households. | [figure_1b](./notebooks/figure_1b.ipynb) |
 | 2      | Differences in the effective household size can explain about 40% of the variation in COVID-19 prevalence across European countries in the first pandemic year. | [figure_2_S7_S8](./notebooks/figure_2_S7_S8.ipynb) |
 | 3      | Out-household COVID-19 spread across European countries. | [charts](./notebooks/charts.ipynb) |
-| 4      | Effective household size η∗ and the out-household rep. number R_out influence the correlation between COVID-19 prevalence α and the Human Development Index (HDI). | [charts](./notebooks/charts.ipynb) |
+| 4      | Effective household size η∗ and the out-household rep. number R_out influence the correlation between COVID-19 prevalence α and the Human Development Index (HDI). | [figure_4](./notebooks/figure_4.ipynb) |
 | S1     | Country infection fatality rate (CIFR) estimation for different countries. | [charts](./notebooks/charts.ipynb) |
 | S2     | Example estimation of total COVID-19 deaths for Bulgaria and Spain. | [charts](./notebooks/charts.ipynb) |
 | S3     | The officially reported number of COVID-19 deaths, surplus deaths, and γ-Extended deaths. | [charts](./notebooks/charts.ipynb) |
